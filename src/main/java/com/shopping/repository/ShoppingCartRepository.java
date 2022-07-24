@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface ShoppingCartRepository extends JpaRepository<ShoppingCart, Long>,CustomShoppingCartRepository {
+public interface ShoppingCartRepository extends JpaRepository<ShoppingCart, Long> {
 
 
     @Query(
