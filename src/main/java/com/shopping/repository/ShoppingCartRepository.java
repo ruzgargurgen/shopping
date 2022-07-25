@@ -33,4 +33,16 @@ public interface ShoppingCartRepository extends JpaRepository<ShoppingCart, Long
                     "                        join product.category category" +
                     " where cart.id=:id")
     List<ShoppingCartWrapperDto> getShoppingCartWrapperDtoById(Long id);
+
+     @Query(value = "select new com.shopping.dtos.ShoppingCartWrapperDto(cart.id," +
+             "cart.orderNumber," +
+             "item.id," +
+             "product.name," +
+             "product.price," +
+             "category.name," +
+             "item.quantity)" +
+             " from ShoppingCart cart join cart.items item " +
+             "                        join item.product product " +
+             "                        join product.category category")
+     List<ShoppingCartWrapperDto> findAllShoppingCartWrapperDto();
 }

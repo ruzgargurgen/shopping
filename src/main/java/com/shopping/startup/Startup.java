@@ -22,7 +22,8 @@ public class Startup implements CommandLineRunner {
     public void run(String... args) throws Exception {
 //        ShoppingCartDto cart= this.shoppingCartRepository.getShoppingCartById(1l);
 
-       List<ShoppingCartWrapperDto> cart= this.shoppingCartRepository.getShoppingCartWrapperDtoById(1l);
+       /*List<ShoppingCartWrapperDto> cart= this.shoppingCartRepository.getShoppingCartWrapperDtoById(1l);*/
+       List<ShoppingCartWrapperDto> cart= this.shoppingCartRepository.findAllShoppingCartWrapperDto();
 
         System.out.println(cart);
     }

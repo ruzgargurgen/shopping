@@ -1,25 +1,39 @@
 package com.shopping.dtos;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import java.math.BigDecimal;
 
 
+@Getter
+@Setter
+@NoArgsConstructor
 public class ShoppingCartWrapperDto {
+
 
     private Long cartId;
 
+
     private Long orderNumber;
+
 
     private Long itemId;
 
+
     private String productName;
 
+
     private BigDecimal productPrice;
+
 
     private String categoryName;
 
     private Long quantity;
 
-    private boolean isMaximumStock=false;
+    private boolean isMaximumStock = false;
+
 
     public ShoppingCartWrapperDto(Long cartId, Long orderNumber, Long itemId, String productName, BigDecimal productPrice, String categoryName, Long quantity) {
         this.cartId = cartId;
@@ -29,14 +43,11 @@ public class ShoppingCartWrapperDto {
         this.productPrice = productPrice;
         this.categoryName = categoryName;
         this.quantity = quantity;
-
-        isMaximumStock=quantity>5;
+        isMaximumStock = quantity > 5;
 
     }
 
-    public BigDecimal getTotalItemPrice(){
+    public BigDecimal getTotalItemPrice() {
         return productPrice.multiply(new BigDecimal(quantity));
     }
-
-
 }
